@@ -68,29 +68,30 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView1;
-        private TextView textView2;
+        //private TextView textView2;
         private ImageView imageView;
 
         ItemViewHolder(View itemView) {
             super(itemView);
-            //textView1 = itemView.findViewById(R.id.textView1);
+            textView1 = itemView.findViewById(R.id.textView1);
             //textView2 = itemView.findViewById(R.id.textView2);
             imageView = itemView.findViewById(R.id.imageView);
 
-            /*itemView.setOnClickListener(new View.OnClickListener(){
+            itemView.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
                     Toast.makeText(v.getContext(), "태우짱!!!" + textView1.getText(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, Roominfo.class); //클릭시 DetailItem
+                    Intent intent = new Intent(context, Iteminfo.class); //클릭시 DetailItem
                     intent.putExtra("TITLE", textView1.getText());
-                    intent.putExtra("CONTENT", textView2.getText());
+                    //intent.putExtra("CONTENT", textView2.getText());
                     intent.putExtra("LIST", mBoard); //이때 같이 board를 넘겨준다!!!! 받는곳에서는 태우야 Intent intent = getIntent로 받으면 된다.
                     context.startActivity(intent);
                 }
-            });*/ //잠시 앨범을 위해 주석처리
+            }); //잠시 앨범을 위해 주석처리
         }
 
         void onBind(Item data) {
-            //textView1.setText(data.getTitle()); 앨범구현을 위해 이 부분은 잠시 주석처리
+            textView1.setText(data.getTitle()); //앨범구현을 위해 이 부분은 잠시 주석처리
+            textView1.setVisibility(View.GONE);
             //textView2.setText(data.getContent()); 앨범구현을 위해 이 부분은 잠시 주석처리
             String a = data.downloadURL;
             Picasso.with(context).load(a).fit().centerInside().into(imageView);

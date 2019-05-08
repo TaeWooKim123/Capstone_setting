@@ -32,7 +32,7 @@ public class Main2Activity extends AppCompatActivity {
         String loginId = id.getText().toString();
         String loginPw = pw.getText().toString();
 
-        if ((loginId).equals("kimtaewoo") && (loginPw).equals("123")) {
+        if ((loginId).equals("tw") && (loginPw).equals("1")) {
 
             Session.setAttribute(Main2Activity.this, "id", loginId);
             Log.d("kimtaewoo", "무엇");
